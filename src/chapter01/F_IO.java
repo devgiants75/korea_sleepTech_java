@@ -76,10 +76,12 @@ public class F_IO {
 		// - 처리방법
 		//		: nextLine()의 입력 메서드 호출로 버퍼의 데이터를 사용(Enter 처리)
 		
+		// == 스캐너 종료 방법 == //
+		// : 스캐너 사용 후 메모리 최적화를 위해 스캐너 종룔
+		// - 스캐너명.close();
 		
+		scanner.close();
 		
-		
-		
-		
+		// scanner.nextLine(); // java.lang.IllegalStateException: Scanner closed
 	}
 }
