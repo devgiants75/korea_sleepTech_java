@@ -81,9 +81,5 @@ public class E_Conversion {
 		
 		System.out.println(letter66);
 		
-		
-		
-		
-		
 	}
 }
