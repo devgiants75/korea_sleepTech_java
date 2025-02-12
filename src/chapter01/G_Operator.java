@@ -113,15 +113,10 @@ public class G_Operator {
 		String result = "이" + "승아";
 		System.out.println(result);
 		
-		// 문자열 곱셈 연산자: *
-		System.out.println('-' * 30);
-		System.out.println("연산자 수업입니다!");
-		System.out.println('-' * 30);
-		
-		
-		
-		
-		
-		
+		// cf) 연산자의 우선순위
+		// : 좌측 >> 우측 
+		// 그러나, 대입연산자의 경우 우항에서 좌항의 대입이 이루어짐
+		//		()괄호 연산자의 경우 우선순위의 연산이 이루어짐
+		int num = 4 * (1 + 2);
 	}
 }
