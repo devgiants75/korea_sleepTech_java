@@ -50,6 +50,8 @@ public class E_Practice {
             System.out.println("학점 F");
         }
         
+        sc.close();
+        
         // === 2번 문제(1) ===
         for (int i = 1; i <= 5; i++) { 
         	// i: 행 수 (1행 부터 5행 까지 반복)
@@ -81,19 +83,24 @@ public class E_Practice {
         	>> 다섯 번째 행 i가 5, 공백은 0
         	
         	- 별은 1부터 5까지 증가 (행의 수를 초과하지 않음)
-        
         */
+        int rows = 5; // 출력할 줄 수
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+        for (int i = 1; i <= rows; i++) {
+        	// 각 행의 반복
+        	// i: 1부터 5까지의 수
+        	for (int j = 1; j <= rows - i; j++) {
+        		// 공백 반복
+        		// j: 4부터 0까지의 수
+        		System.out.print(" ");
+        	}
+        	
+        	for (int k = 1; k <= i; k++) {
+        		// 별 반복
+        		// k: 1부터 5까지의 수
+        		System.out.print("*");
+        	}
+        	System.out.println();
+        }    
 	}
 }
