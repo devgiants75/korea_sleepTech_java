@@ -44,6 +44,7 @@ public class F_Practice {
 						break;
 					case "b":
 						System.out.println(">> 메인 메뉴로 돌아갑니다.");
+						isRunMenu2 = false;
 						break;
 					default:
 						System.out.println("잘못된 입력입니다. 다시 입력하세요 :)");
