@@ -47,15 +47,5 @@ public class B_Switch {
 		default:
 			System.out.println("유효한 chapter가 아닙니다.");
 		}
-		
-		
-		
-		
-		
-		
-		
-		
-		
 	}
-
 }
