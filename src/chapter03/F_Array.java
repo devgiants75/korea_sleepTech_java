@@ -25,6 +25,8 @@ public class F_Array {
 		 
 		 // int length = list.size();
 		 
+		 list.remove(1); // [1, 3, 4, 5, 6, 7, 8, 9, 10]
+		 
 		 for (int i = 0; i < list.size(); i++) {
 			 // 리스트의 크기가 변동되기 때문에 크기값을 매번 동적으로 확인
 			 
