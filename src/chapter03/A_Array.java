@@ -86,8 +86,58 @@ public class A_Array { // 클래스명 == 파일명 (대문자로 시작)
 		System.out.print(greet[4]); // hello
 		System.out.println();
 		
-		System.out.println(greet[5]);
+		// System.out.println(greet[5]); // ArrayIndexOutOfBoundsException
 		
+		// == 배열의 길이(크기) == //
+		// 배열명.length 속성으로 사용
+		System.out.println(greet.length); // 5
 		
+		// == 배열의 특징 == //
+		// > 한 번 생성되면 크기 변경 X
+		// > 참조 타입: 주소값이 저장
+		// > 모든 요소는 같은 자료형
+		
+		// == 문자열 배열 생성 == //
+		// : String 타입 배열의 초기값 null
+		String[] fruits = new String[3];
+		System.out.println(fruits); // [Ljava.lang.String;@28a418fc
+		System.out.println(fruits[1]); // null
+		
+		fruits[1] = "사과";
+		System.out.println(fruits[1]); // 사과
+		
+		fruits[1] = "오렌지";
+		System.out.println(fruits[1]); // 오렌지
+		
+		// == 배열 요소 삭제 == //
+		// : 삭제 기능을 담당하는 문법 X
+		// > 삭제할 요소를 제외한 나머지 요소를 '새로운 배열'로 복사
+		
+		int[] original = {1, 2, 3, 4}; // 길이 4
+		int removeIndex = 2;
+		
+		int[] newArray = new int[original.length - 1]; // 길이 3
+		
+		int k = 0; // 새로운 배열의 인덱스 번호
+		
+		int originalLength = original.length;
+		
+		for (int index = 0; index < originalLength; index++) {
+			if (index == removeIndex) {
+				// index 번호가 2일 경우 새로운 배열에 값을 할당하지 않고 다음 조건으로 이동
+				// : index 번호 2번의 요소가 새로운 배열에서는 삭제
+				continue; // 루프의 나머지 코드를 건너뛰고 조건 확인으로 이동
+			}
+			
+			newArray[k++] = original[index];
+			// k, index
+			// newArray[0] = original[0]
+			// newArray[1] = original[1]
+			// newArray[2] = original[3]
+		}
+		
+		System.out.println(newArray[0]); // 1
+		System.out.println(newArray[1]); // 2
+		System.out.println(newArray[2]); // 4
 	}
 }
