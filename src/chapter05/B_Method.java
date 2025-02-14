@@ -47,9 +47,60 @@ package chapter05;
 		return sum; - 자동 형 변환 가능
 	}
 */
+class Example {
+	int x, y; // (인스턴스) 필드
+	
+	int add (int x, int y) { // 파라미터(매개변수) - 지역 변수
+		int result = x + y; // 지역 변수
+		return result;
+	}
+	
+	double multiply() {
+		int result = x * y;
+		return result; 
+	}
+	
+	// 반환값 X, 매개변수 X
+	void print99dan() { // 메서드명은 변수명의 명명규칙과 동일
+		for (int i = 1; i < 8; i++) {
+			for (int j = 0; j < 8; j++) {
+				System.out.print(j * i + " ");
+			}
+			System.out.println();
+		}
+	}
+}
+
 
 public class B_Method {
 	public static void main(String[] args) {
+		Example example = new Example();
+		example.print99dan();
 		
+		// 함수의 파라미터에 데이터 전달
+		// : 함수 호출 시 () 영역 내에서 parameter(매개변수)에 전달되는 값을 argument라고 부름
+		
+		// 데이터타입 변수 = 실제데이터값;
+		int num = 5;
+		
+		// == 매개변수(parameter) VS 인자(argument) == //
+		
+		// 1. 매개변수
+		// - 매서드 정의 시 소괄호 안에 선언되는 '변수'
+		// - 메서드 호출 시 값을 전달받기 위한 입력변수로 사용
+		// >> 호출 시 전달받은 값은 구현부 내에서 사용
+		
+		// 2. 인자(인수)
+		// - 메서드를 호출할 때 소괄호 안에 전달되는 '값'
+		// - 호출된 메서드의 매개변수에 실제 데이터를 전달
+		// >> 메서드 호출부에서 전달, 매개변수에 저장
+		
+//		example.add(1);
+//		example.add(1, 2, 3); - 인자값과 매개변수의 수는 같아야 한다!
+		
+//		example.add("1", "2"); - 인자값과 매개변수의 타입은 같거나 자동 형 변환이 가능해야 한다!
+		example.add('1', '2'); // 자동 형 변환 가능: char(2) > int(4)
+		
+		System.out.println(example.add(10, 20)); // 30
 	}
 }
