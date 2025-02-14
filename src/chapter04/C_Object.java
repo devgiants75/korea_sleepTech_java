@@ -56,7 +56,28 @@ public class C_Object {
 		//		- 생성된 객체의 메모리 주소를 반환하여 참조 변수에 저장
 		
 		// 생성자 호출: 생성자명(필요한 인자...);
-		
 		Car myCar = new Car("volvo xc60", 2025);		
+		
+		System.out.println(myCar); // chapter04.Car@28a418fc
+		
+		// == 객체 사용 == //
+		// : .연산자를 사용 - 객체 내부의 필드와 메서드를 사용
+		
+		// 1. 필드 접근
+		// : 객체명.필드명;
+		// cf) A.B: A안의 B
+		System.out.println(myCar.model); // volvo xc60
+		System.out.println(myCar.year); // 2025
+		
+		// 2. 메서드 호출
+		// : 객체명.메서드명();
+		// cf) A.B(): A안의 B를 실행
+		myCar.displayInfo(); // Model: volvo xc60, Year: 2025
+		
+		// cf) 객체 생성 구문
+		// : '클래스명' 객체명 = new 클래스명(생성자 매개변수값 전달);
+		
+		// cf) '클래스타입'
+		// : 지정된 클래스를 기반으로 생성된 객체임을 나타냄
 	}
 }
