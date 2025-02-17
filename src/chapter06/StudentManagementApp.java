@@ -49,6 +49,8 @@ class Student {
 		this.name = name;
 		this.age = age;
 	}
+	
+	static int number = 10;
 }
 
 // cf) Java 클래스명은 파일 이름과 동일 (대소문자까지)
