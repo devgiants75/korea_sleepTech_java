@@ -42,9 +42,41 @@ class ChildClass extends ParentClass {
 // - 재사용성, 확장성 향상
 //		: 기존의 코드 변경 없이, 새로운 기능 추가와 변경 가능
 
+class AnimalClass {
+	void sound() {
+		System.out.println("동물이 울음소리를 냅니다.");
+	}
+}
+
+class DogClass extends AnimalClass {
+	// 코드 어노테이션
+	// : 코드에 메타데이터를 제공하는 방법
+	
+	@Override
+	void sound() {
+		System.out.println("강아지가 멍멍하고 짖습니다.");
+	}
+}
+
+class CatClass extends AnimalClass {
+	@Override
+	void sound() {
+		System.out.println("고양이가 야옹하고 웁니다.");
+	}
+}
+
 public class D_Overriding {
 	public static void main(String[] args) {
 		ChildClass childClass = new ChildClass();
 		childClass.exercise(); // 달리기도 잘하고 피구도 잘합니다.
+		
+		AnimalClass animalClass = new AnimalClass();
+		animalClass.sound(); // 동물이 울음소리를 냅니다.
+		
+		CatClass catClass = new CatClass();
+		DogClass dogClass = new DogClass();
+		
+		dogClass.sound();
+		catClass.sound();
 	}
 }
