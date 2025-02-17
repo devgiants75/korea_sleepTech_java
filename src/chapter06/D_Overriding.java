@@ -32,10 +32,19 @@ class ChildClass extends ParentClass {
 	}
 }
 
+// == 오버라이딩 특징 == //
+// - 메서드 시그니처가 일치!
+//		: 부모 클래스의 메서드와 동일한 이름, 매개변수 구성을 가져야 함.
+//		   반환 타입은 같거나 자동 형 변환이 가능하게 작성
+// - 메서드명 바로 위에 @Override 어노테이션을 작성!
+// - 다형성 구현
+//		: 하나의 이름으로 여러 기능을 수행하는 코드 작성
+// - 재사용성, 확장성 향상
+//		: 기존의 코드 변경 없이, 새로운 기능 추가와 변경 가능
+
 public class D_Overriding {
 	public static void main(String[] args) {
 		ChildClass childClass = new ChildClass();
-		childClass.exercise(); // 달리기를 잘합니다.
-
+		childClass.exercise(); // 달리기도 잘하고 피구도 잘합니다.
 	}
 }
