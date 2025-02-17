@@ -27,7 +27,7 @@ import otherPackage.*;
 class Modifier {}
 
 // 2. 접근 제어자 범위
-// public > (default) > protected > private
+// public > protected > (default) > private
 
 // 1) private
 // : 같은 클래스 내에서만 접근 가능
