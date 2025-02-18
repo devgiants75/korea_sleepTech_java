@@ -44,5 +44,34 @@ public class Exception02 {
 		System.out.println("정상적인 실행");
 		
 		System.out.println("== 다중 catch 블록 실행 ==");
+		try {
+			System.out.println("정상 실행");
+			
+			// int division = 10 / 0;
+			
+			System.out.println("50번째 줄 주석 시 실행");
+			
+			int[] numbers = new int[5]; // new int[배열의크기];
+			// numbers[10] = 50; // 변수명[인덱스번호]
+			
+			String text = null;
+			System.out.println(text.length()); // 문자열.length(): 문자열 길이 반환
+			
+		} catch(ArithmeticException e) {
+			System.out.println("수학 공식 에러: " + e.getMessage());
+		} catch(ArrayIndexOutOfBoundsException e) {
+			System.out.println("배열 인덱스 초과 에러: " + e.getMessage());
+		} catch(NullPointerException e) {
+			System.out.println("null값 계산 에러: " + e.getMessage());
+		} catch(Exception e) {
+			System.out.println("초과 오류  발생: " + e.getMessage());
+			
+			// cf) Exception 클래스
+			//		: 자바 전체 예외의 최상위 클래스
+			//		- 예기치 못한 예외 발생 방지를 위해 세부적인 예외 작성의 마지막에 첨부
+		} finally {
+			// cf) 예외 발생 여부와 상관없이 항상 실행되는 코드 블럭
+			System.out.println("finally 블록 - 항상 실행");
+		}
 	}
 }
