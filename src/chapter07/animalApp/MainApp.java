@@ -22,6 +22,11 @@ public class MainApp {
 		
 		// 배열의 모든 동물을 service에 전달하여 출력
 		for (Animal animal : animals) {
+			if (animal instanceof Cat) {
+				System.out.println("고양이가 있다.");
+				Cat cat = (Cat) animal; // 다운캐스팅
+				cat.eat();
+			}
 			service.handleAnimal(animal);
 		}
 		
