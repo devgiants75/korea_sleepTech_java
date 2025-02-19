@@ -20,16 +20,60 @@ class EventManagement {
 	ArrayList<String> participantList = new ArrayList<>(); // 이벤트 참가자 명단
 	LinkedList<String> waitingQueue = new LinkedList<>(); // 대기열 명단
 	
+	// == 메서드 == //
+	void addParticipant(String name) {
+		participantList.add(name);
+	}
 	
+	void addToWaitingQueue(String name) {
+		waitingQueue.add(name);
+	}
+	
+	void leaveParticipant(String name) {
+		// 대기열의 인원이 존재해야만 대기열 인원을 참가자 명단에 추가 가능
+		// : 대기열 크기(.size())가 0 이상
+		if (waitingQueue.size() > 0) {
+			String nextParticipant = waitingQueue.remove(0); // 대기열에서 제거
+			addParticipant(nextParticipant); // 참가자 명단에 추가
+		}
+	}
+	
+	boolean checkParticipant(String name) {
+		return participantList.contains(name);
+	}
 }
-
 
 public class C_ListPractice {
 	public static void main(String[] args) {
+		EventManagement eventManagement = new EventManagement();
 		
+		eventManagement.addParticipant("이승아");
+		eventManagement.addParticipant("이도경");
+		eventManagement.addParticipant("조승범");
+		eventManagement.addParticipant("진상영");
+		eventManagement.addParticipant("윤대휘");
 		
+		eventManagement.addToWaitingQueue("정규민");
+		eventManagement.addToWaitingQueue("박성욱");
+		eventManagement.addToWaitingQueue("김소빈");
+		eventManagement.addToWaitingQueue("윤안나");
 		
+		System.out.println(eventManagement.participantList); // [이승아, 이도경, 조승범, 진상영, 윤대휘]
+		System.out.println(eventManagement.waitingQueue); // [정규민, 박성욱, 김소빈, 윤안나]
 		
+		eventManagement.addToWaitingQueue("이은우");
+		eventManagement.addToWaitingQueue("이혜지");
 		
+		eventManagement.leaveParticipant("이승아");
+		eventManagement.leaveParticipant("조승범");
+		eventManagement.leaveParticipant("윤대휘");
+		
+		System.out.println(eventManagement.participantList);
+		// [이승아, 이도경, 조승범, 진상영, 윤대휘, 정규민, 박성욱, 김소빈]
+		
+		System.out.println(eventManagement.waitingQueue); // [윤안나, 이은우, 이혜지]
+		
+		System.out.println(eventManagement.checkParticipant("조승범")); // true
+		System.out.println(eventManagement.checkParticipant("이은우")); // false
 	}
 }
