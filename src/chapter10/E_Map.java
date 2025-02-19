@@ -1,6 +1,9 @@
 package chapter10;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 // == Map 인터페이스 == //
@@ -46,12 +49,34 @@ public class E_Map {
 		System.out.println(students); 
 		// {이승아=29, 김명진=34, 이도경=31}
 		// : {키=값, 키=값} - 키와 값의 구분을 =로 표시
+		// >> 삽입 순서 보장 X
 		
+		// 2. get(키): 지정된 키의 값을 반환
+		System.out.println(students.get("이도경")); // 31
 		
+		// 3. remove(키): 지정된 키의 값을 삭제 후 반환
+		students.remove("이승아");
+		System.out.println(students); // {김명진=34, 이도경=31}
 		
+		// 4. containsKey(키): 해당 키가 Map에 있는지 확인하여 boolean 값을 반환
+		System.out.println(students.containsKey("이승아")); // false
+		System.out.println(students.containsKey("김명진")); // true
 		
+		// 5. size()
+		System.out.println(students.size()); // 2
 		
+		// 6. keySet(): Map의 키를 Set으로 반환
+		System.out.println(students.keySet()); // [김명진, 이도경]
 		
+		// 7. values(): Map의 값을 컬렉션타입으로 반환
+		Collection<Integer> ages = students.values();
+		System.out.println(ages); // [34, 31]
 		
+		// cf) Collection 타입은 하위 인터페이스로 변환 가능
+		List<Integer> listAges = new ArrayList<>(ages);
+		System.out.println(listAges); // [34, 31]
+		
+		// 8. entrySet(): Map의 키와 값을 Set으로 반환
+		System.out.println(students.entrySet()); // [김명진=34, 이도경=31]
 	}
 }
