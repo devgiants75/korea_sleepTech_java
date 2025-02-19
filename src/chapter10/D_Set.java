@@ -58,6 +58,6 @@ public class D_Set {
 		
 		System.out.println(programming.isEmpty()); // false
 		programming.clear();
-		System.out.println(programming.isEmpty());
+		System.out.println(programming.isEmpty()); // true
 	}
 }
