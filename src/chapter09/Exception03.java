@@ -96,15 +96,5 @@ public class Exception03 {
 		} catch(ArrayIndexOutOfBoundsException e) {
 			System.out.println("기타: " + e.getMessage());
 		}
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 	}
 }
