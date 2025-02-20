@@ -1,5 +1,8 @@
 package chapter10.practice02;
 
+import chapter10.practice02.repository.InMemoryItemRepository;
+import chapter10.practice02.service.InventoryService;
+import chapter10.practice02.service.InventoryServiceImpl;
 
 /*
  * == Inventory Management System ==
@@ -27,14 +30,26 @@ package chapter10.practice02;
  * 		Discountable: 할인 로직 제공 
  * */
 public class Main {
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
+	public static void main(String[] args) {
+		InventoryService inventoryService = new InventoryServiceImpl(new InMemoryItemRepository());
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	}
 }
