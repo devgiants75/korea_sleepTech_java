@@ -116,9 +116,11 @@ public class InventorySystem {
 					System.out.println("If you want to exit, please enter 'Y'");
 					if (sc.nextLine().equalsIgnoreCase("y")) {
 						System.out.println("=== Exiting ===");
+						sc.close();
 						return;
-					}
+					} 
 					System.out.println("Please try again");
+					break;
 				default:
 					System.out.println("Invalid option. Try again!");
 				}
