@@ -1,5 +1,7 @@
 package chapter10.practice02;
 
+import java.util.Scanner;
+
 import chapter10.practice02.repository.InMemoryItemRepository;
 import chapter10.practice02.service.InventoryService;
 import chapter10.practice02.service.InventoryServiceImpl;
@@ -32,7 +34,50 @@ import chapter10.practice02.service.InventoryServiceImpl;
 public class Main {
 	public static void main(String[] args) {
 		InventoryService inventoryService = new InventoryServiceImpl(new InMemoryItemRepository());
+		Scanner sc = new Scanner(System.in);
 		
+		while (true) {
+			System.out.println("");
+			System.out.println("=== Inventory Management System ===");
+			System.out.println("1. Add Item");
+			System.out.println("2. Update Item Price");
+			System.out.println("3. Delete Item");
+			System.out.println("4. View Items by Category");
+			System.out.println("5. View All Items");
+			System.out.println("6. Exit");
+			System.out.println("Choose an option: ");
+
+			try {
+				int choice = Integer.parseInt(sc.nextLine());
+				
+				switch (choice) {
+				case 1:
+//					addItem(inventoryService, scanner);
+					break;
+				case 2:
+					
+					break;
+				case 3:
+					
+					break;
+				case 4:
+					
+					 break;
+				case 5:
+					
+					break;
+				case 6:
+					
+					return;
+				default:
+					System.out.println("Invalid choice, Please try again");
+				}
+				sc.close();
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+			}
+			
+		}
 		
 		
 		
