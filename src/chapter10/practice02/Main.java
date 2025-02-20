@@ -1,7 +1,12 @@
 package chapter10.practice02;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
+import chapter10.practice02.entity.Electronics;
+import chapter10.practice02.entity.Furniture;
+import chapter10.practice02.entity.Item;
 import chapter10.practice02.repository.InMemoryItemRepository;
 import chapter10.practice02.service.InventoryService;
 import chapter10.practice02.service.InventoryServiceImpl;
@@ -33,6 +38,9 @@ import chapter10.practice02.service.InventoryServiceImpl;
  * */
 public class Main {
 	public static void main(String[] args) {
+		// ItemRepository repository = new InMemoryItemRepository();
+		// InventoryService inventoryService = new InventoryServiceImpl(repository);
+		
 		InventoryService inventoryService = new InventoryServiceImpl(new InMemoryItemRepository());
 		Scanner sc = new Scanner(System.in);
 		
@@ -52,49 +60,120 @@ public class Main {
 				
 				switch (choice) {
 				case 1:
-//					addItem(inventoryService, scanner);
+					addItem(inventoryService, sc);
 					break;
 				case 2:
-					
+					updateItemPrice(inventoryService, sc);
 					break;
 				case 3:
-					
+					deleteItem(inventoryService, sc);
 					break;
 				case 4:
-					
-					 break;
+					viewItemsByCategory(inventoryService, sc);
+					break;
 				case 5:
-					
+					viewAllItems(inventoryService);
 					break;
 				case 6:
-					
+					System.out.println("=== Exiting ===");
+					sc.close();
 					return;
 				default:
 					System.out.println("Invalid choice, Please try again");
 				}
-				sc.close();
+				
 			} catch (Exception e) {
 				System.out.println(e.getMessage());
 			}
-			
+		}		
+	}
+	
+	private static void addItem(InventoryService inventoryService, Scanner sc) {
+		System.out.println("Enter Item Id: ");
+		String id = sc.nextLine();
+		System.out.println("Enter Item Name: ");
+		String name = sc.nextLine();
+		System.out.println("Enter Item Price: ");
+		int price = sc.nextInt();
+		System.out.println("Enter Item Quantity: ");
+		int quantity = sc.nextInt();
+		sc.nextLine(); // 버퍼 소비
+		System.out.println("Enter Item Category (Electronics/Furniture): ");
+		String category = sc.nextLine();
+		
+		if (category.equalsIgnoreCase("Electronics")) {
+			System.out.println("Enter Brand: ");
+			String brand = sc.nextLine();
+			System.out.println("Enter Warranty (months): ");
+			int warranty = sc.nextInt();
+			sc.nextLine();
+			Item electronics = new Electronics(id, name, price, quantity, brand, warranty);
+			inventoryService.addItem(electronics);
+		} else if (category.equalsIgnoreCase("Furniture")) {
+			System.out.println("Enter Material: ");
+			String material = sc.nextLine();
+			System.out.println("Enter Size: ");
+			String size = sc.nextLine();
+			Item furniture = new Furniture(id, name, price, quantity, material, size);
+			inventoryService.addItem(furniture);
+		} else {
+			System.out.println("Invalid category, Item not added");
 		}
+	}
+	
+	private static void updateItemPrice(InventoryService inventoryService, Scanner sc) {
+		System.out.println("Enter Item ID to update Price: ");
+		String id = sc.nextLine();
+		System.out.println("Enter Item new Price: ");
+		int newPrice = sc.nextInt();
+		sc.nextLine();
+		inventoryService.updateItemPrice(id, newPrice);
+		System.out.println("Item price updated successfully.");
+	}
+	
+	private static void deleteItem(InventoryService inventoryService, Scanner sc) {
+		System.out.println("Enter Item ID to delete: ");
+		String id = sc.nextLine();
+		inventoryService.deleteItem(id);
+		System.out.println("Item deleted successfully.");
+	}
+	
+	private static void viewItemsByCategory(InventoryService inventoryService, Scanner sc) {
+		System.out.println("Enter Category to View (Electornics/Furniture)");
+		String category = sc.nextLine();
+		List<Item> items = inventoryService.getItemsByCategory(category);
 		
+		if (items.isEmpty()) {
+			System.out.println("No items found in this category");
+		} else {
+			System.out.println("Items in category: " + category + " >>> " );
+			for(Item item: items) {
+				System.out.println(item);
+			}
+		}
+	}
+	
+	private static void viewAllItems(InventoryService inventoryService) {
+		List<Item> allItems = new ArrayList<Item>(inventoryService.getItemsByCategory("Electronics"));
 		
+		// 컬렉션타입데이터A.addAll(컬렉션타입데이터B)
+		// : A의 구조에 B의 모든 데이터를 각각 요소로 삽입
 		
+		// a = [1, 2, 3]
+		// b = [4, 5, 6]
+		// a.add(b) 
+		// : [1, 2, 3, [4, 5, 6]]
+		// a.addAll(b)
+		// : [1, 2, 3, 4, 5, 6]
+		allItems.addAll(inventoryService.getItemsByCategory("Furniture"));
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+		if (allItems.isEmpty()) {
+			System.out.println("No items available");
+		} else {
+			System.out.println("== All Items ==");
+			for (Item item: allItems) {
+				System.out.println(item);
+			}
+		}
 	}
 }
