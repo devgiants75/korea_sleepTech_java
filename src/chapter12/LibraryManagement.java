@@ -1,11 +1,13 @@
 package chapter12;
 
+import chapter12.view.BookView;
+
 // << 도서 관리 시스템 >>
 
 // 1. == 요구사항 분석 ==
-// - 새로운 도서 추가
-// - 모든 도서 정보 출력
-// - 도서 검색 (도서 제목으로 검색)
+// - 새로운 도서 추가: addBook
+// - 모든 도서 정보 출력: getAllBooks
+// - 도서 검색 (도서 제목으로 검색): searchBookByTitle
 
 // 2. == 프로그램 구조 ==
 
@@ -20,4 +22,8 @@ package chapter12;
 // : BookController 클래스
 //		- 사용자의 입력에 따라 적절한 Model 메서드 호출
 public class LibraryManagement {
+	public static void main(String[] args) {
+		BookView bookView = new BookView();
+		bookView.showMenu();	
+	}	
 }
