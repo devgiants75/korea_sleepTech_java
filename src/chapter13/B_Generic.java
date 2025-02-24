@@ -59,7 +59,11 @@ public class B_Generic {
 		// == 일반 와일드 카드 == //
 		
 		// ? : 어떤 타입이든 허용
+		// >> 와일드 카드의 구조체에 값을 할당하는 경우 컴파일러가 구체적인 타입을 확인할 수 없어 오류 발생
 		List<?> list1 = new ArrayList<>();
+		// list1.add(integerBasket);
+		// list1.add("안녕");
+		list1.add(null); // Object 값에는 반드시 null 값이 허용
 		
 		// == 제한적 와일드 카드 == //
 		
@@ -69,17 +73,17 @@ public class B_Generic {
 		
 		// >> 정수 혹은 정수의 하위 타입만 허용
 		List<? extends Number> list2 = new ArrayList<Integer>();
+		// list2.add(123); - 구체적인 숫자 값 추가 불가 (타입 안정성 보장 불가)
 		
 		// == 2. 하한 제한 와일드 카드 == //
 		// <? super Type>
 		List<? super Integer> list3 = new ArrayList<Number>();
-		
+		list3.add(123);
+		list3.add(456); // Integer의 구체적인 타입 값을 지정 가능 (+ Integer 하위 타입까지 추가 가능)
+		// list3.add(456.789);
 		
 		// cf) Number: 정수 + 실수를 모두 포함하는 숫자 값
 		//		Integer: 정수만을 가지는 숫자 값
 		// Number >>> Integer
-		
-		
-		
 	}
 }
