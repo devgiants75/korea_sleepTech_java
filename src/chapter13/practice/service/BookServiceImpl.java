@@ -21,32 +21,51 @@ public class BookServiceImpl implements BookManager<Book>{
 	
 	@Override
 	public void addBook(Book book) {
-		// TODO Auto-generated method stub
+		Book addedBook = repository.save(book);
 		
+		if (addedBook == null) {
+			System.out.println("해당 id의 값이 존재하여 책이 추가되지 않았습니다.");
+		} else {
+			System.out.println(book.getTitle() + "(이)가 추가되었습니다.");
+		}	
 	}
 
 	@Override
 	public List<Book> listAllBooks() {
-		// TODO Auto-generated method stub
-		return null;
+		return repository.findAll();
 	}
 
 	@Override
 	public Book findBookById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		Book book = repository.findById(id);
+		if (book == null) {
+			System.out.println(id + "에 해당하는 도서를 찾을 수 없습니다.");
+		}
+		return book;
 	}
 
 	@Override
 	public void updateBook(int id, Book updateBook) {
-		// TODO Auto-generated method stub
+		Book existingBook = repository.findById(id);
 		
+		if (existingBook == null) {
+			System.out.println(id + "에 해당 하는 도서를 찾을 수 없습니다.");
+			return;
+		}
+		
+		repository.deleteById(id); // 기존 도서 삭제
+		
+		addBook(updateBook); // // 업데이트 된 도서 추가
 	}
 
 	@Override
 	public void removeBook(int id) {
-		// TODO Auto-generated method stub
-		
+		Book existingBook = repository.findById(id);
+		if (existingBook == null) {
+			System.out.println(id + "에 해당 하는 도서를 찾을 수 없습니다.");
+			return;
+		}
+		repository.deleteById(id);
+		System.out.println(existingBook.getTitle() + "이(가) 삭제되었습니다.");
 	}
-
 }

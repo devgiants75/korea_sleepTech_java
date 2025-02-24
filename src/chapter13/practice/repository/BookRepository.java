@@ -10,14 +10,15 @@ public class BookRepository {
 	private List<Book> books = new ArrayList<>();
 	
 	// 도서 저장
-	public void save(Book book) {
+	public Book save(Book book) {
 		// 중복된 id값일 경우 도서 저장 X
 		if (findById(book.getId()) != null) {
 			// 존재하는 id의 책을 전달한 경우
 			System.out.println(book.getId() + "의 책이 이미 존재합니다. 다시 입력해주세요.");
-			return;
+			return null;
 		}
 		books.add(book);
+		return book;
 	}
 	
 	// 도서 삭제
