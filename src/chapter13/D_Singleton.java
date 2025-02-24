@@ -42,20 +42,51 @@ class Singleton {
 	}
 }
 
+// 교장 선생님 클래스
+class SchoolPrincipal {
+	// 유일한 객체를 저장할 변수
+	// : 클래스 그 자체의 객체값을 저장
+	private static SchoolPrincipal instance; 
+	
+	// 1. 생성자를 private으로 만들어 다른 곳에서 객체 생성이 불가하도록 설정
+	// >> 해당 클래스 외부에서 객체 생성 불가!
+	private SchoolPrincipal() {
+		System.out.println("교장 선생님 객체 생성!");
+	}
+	
+	// 2. getInstance() 메서드를 통해 객체 생성
+	// >> 해당 클래스로 생성된 객체가 없는 경우에만 새롭게 생성하여 반환
+	public static SchoolPrincipal getInstance() {
+		if (instance == null) {
+			// 객체가 없다면 새로 생성
+			instance = new SchoolPrincipal();
+		}
+		return instance; // 기존 객체 OR 생성 객체 반환
+	}
+	
+	public void announce() {
+		System.out.println("공부 열심히하고 운동 열심히하고 일찍 자고 일찍 일어나세요~~~");
+	}
+}
+
 public class D_Singleton {
 	public static void main(String[] args) {
+		// instance == null
+		// : 새로운 객체 생성
+		SchoolPrincipal principal1 = SchoolPrincipal.getInstance();
 		
+		// 기존의 instance의 주소를 반환
+		SchoolPrincipal principal2 = SchoolPrincipal.getInstance();
+		SchoolPrincipal principal3 = SchoolPrincipal.getInstance();
+		SchoolPrincipal principal4 = SchoolPrincipal.getInstance();
 		
+		System.out.println(principal1);
+		System.out.println(principal2);
+		System.out.println(principal3);
+		System.out.println(principal4);
 		
+		System.out.println(principal1 == principal2); // true
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+		principal1.announce();
 	}
 }
