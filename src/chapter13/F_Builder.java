@@ -29,7 +29,7 @@ class GameCharacter {
 		
 		// 선택 필드에 대한 할당 메서드
 		// : 필드명 그 자체의 메서드명을 가짐
-		public Builder skiil(String skill) {
+		public Builder skill(String skill) {
 			this.skill = skill;
 			return this;
 		}
@@ -53,5 +53,15 @@ class GameCharacter {
 }
 
 public class F_Builder {
-	
+	public static void main(String[] args) {
+		GameCharacter pororo = new GameCharacter.Builder("뽀로로", "팽귄")
+				.skill("크롱 놀리기")
+				.item("안경")
+				.build();
+		
+		GameCharacter loopy = new GameCharacter.Builder("루피", "비버")
+				.skill("정색")
+				.item("잔망루피")
+				.build();
+	}
 }
