@@ -1,5 +1,7 @@
 package chapter13.practice;
 
+import chapter13.practice.controller.BookController;
+
 /*
  * MVC 패턴 == 도서 관리 시스템 ==
  * 
@@ -22,6 +24,7 @@ package chapter13.practice;
 
 public class Main {
 	public static void main(String[] args) {
-		
+		BookController controller = new BookController();
+		controller.start();
 	}
 }
