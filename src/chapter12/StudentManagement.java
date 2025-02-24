@@ -1,5 +1,7 @@
 package chapter12;
 
+import chapter12.view.StudentView;
+
 /*
  * == 학생 관리 시스템 ==
  * : MVC 패턴 사용
@@ -33,6 +35,7 @@ package chapter12;
  * */
 public class StudentManagement {
 	public static void main(String[] args) {
-		
+		StudentView view = new StudentView();
+		view.showMenu();
 	}
 }

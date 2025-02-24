@@ -47,7 +47,6 @@ public class StudentView {
 				System.out.println("프로그램을 종료합니다.");
 				scanner.close();
 				return;
-
 			default:
 				System.out.println("유효하지 않은 메뉴입니다. 다시 선택하세요.");;
 			}
