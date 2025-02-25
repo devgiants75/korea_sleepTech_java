@@ -83,13 +83,5 @@ public class F_Lambda {
 		
 		System.out.println(p1.getName()); // 이승아
 		System.out.println(p2.getName()); // 이름 미상
-		
-		
-		
-		
-		
-		
-		
-		
 	}
 }
