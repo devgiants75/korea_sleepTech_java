@@ -75,6 +75,23 @@ class OuterClass {
 	}
 }
 
+// 추상 클래스: 하나 이상의 추상 메서드를 포함
+abstract class AbstractClass {
+	// cf) 추상 클래스는 구현 클래스를 가질 수 있음
+	//		>> 추상 메서드에 abstract 키워드 생략 X
+	abstract void display(); // 추상 메서드: 구현부 {}가 없는 메서드
+}
+
+// 인터페이스
+interface InterfaceClass {
+	// cf) 필드는 public static final 생략
+	
+	// cf) 인터페이스는 일반 구현 클래스를 가질 수 없음
+	//		>> static 메서드, default 메서드 가능 (예외)
+	void something(); // public abstract 생략
+}
+
+
 public class A_Inner {
 	public static void main(String[] args) {
 		System.out.println("=== 비정적 내부 클래스 ===");
@@ -98,7 +115,37 @@ public class A_Inner {
 		OuterClass outerClass2 = new OuterClass();
 		outerClass2.outerMethod();
 		
+		System.out.println("=== 익명 (내부) 클래스 ===");
+		// 클래스타입 변수명 = new 클래스명() { 메서드 구현 - 추상클래스/인터페이스의 추상 메서드 }
+		AbstractClass abstractClass1 = new AbstractClass() {
+			@Override
+			void display() {
+				System.out.println("익명 내부 클래스 - 추상 클래스1");
+			}
+		};
 		
+		abstractClass1.display();
 		
+		AbstractClass abstractClass2 = new AbstractClass() {
+			@Override
+			void display() {
+				System.out.println("익명 내부 클래스 - 추상 클래스2");
+			}
+		};
+		
+		abstractClass2.display();
+		
+		System.out.println(abstractClass1 == abstractClass2); // false
+		
+		// >> 재사용될 필요가 없거나, 단 한번의 사용 목적에 유용
+		
+		InterfaceClass interfaceClass = new InterfaceClass() {
+			@Override
+			public void something() {
+				System.out.println("안녕하세요! 익명 클래스입니다 :)");
+			}
+		};
+		
+		interfaceClass.something();		
 	}
 }
