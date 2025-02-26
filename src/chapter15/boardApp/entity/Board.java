@@ -11,7 +11,7 @@ import lombok.Data;
  * */
 @Data
 public class Board {
-	private Long id;
+	private long id;
 	private String title;
 	private String content;
 	private String author;
