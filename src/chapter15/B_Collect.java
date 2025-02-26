@@ -2,7 +2,9 @@ package chapter15;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 // === 스트림 API의 최종 연산 === //
 // 1. collect 메서드
@@ -39,7 +41,19 @@ public class B_Collect {
 		
 		System.out.println(result);
 		
+		// Collectors.groupingBy()
+		// : 특정 기준에 따라 요소를 그룹화
+		Map<Character, List<String>> groupedByFirstChar = upperLanguages.stream()
+				.collect(Collectors.groupingBy(language -> language.charAt(0)));
 		
+		System.out.println(groupedByFirstChar);
+		// {P=[PYTHON], J=[JAVA, JAVASCRIPT]}
 		
+		// Collectors.partitioningBy()
+		// : 조건에 따라 두 그룹으로 나눔 >> 해당 조건이 참/거짓인 경우로 나뉨
+		Map<Boolean, List<Integer>> partitioned = Stream.of(1, 2, 3, 4, 5)
+				.collect(Collectors.partitioningBy(num -> num % 2 == 0));
+		
+		System.out.println(partitioned); // {false=[1, 3, 5], true=[2, 4]}
 	}
 }
