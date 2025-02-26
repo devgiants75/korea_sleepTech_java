@@ -45,8 +45,29 @@ public class C_Optional {
 		System.out.println(optional3.isPresent()); // false
 		System.out.println(optional3.isEmpty()); // true
 		
+		// 2) 값을 가져오기
+		// .get: 값이 있을 경우 반환, 없을 경우 NoSuchElementException 발생
+		System.out.println(optional1.get()); // Hello Optional!
+		// System.out.println(optional3.get()); // NoSuchElementException
 		
+		// 3) 기본값 처리 >> 비워진 Optional에 대한 처리
+		// - .orElse(): 값이 없으면 기본값 반환
+		// - .orElseGet(): 값이 없으면 함수형 인터페이스로 값을 생성
+		// - .orElseThrow(): 값이 없으면 예외를 발생
 		
+		System.out.println(optional3.orElse("기본값")); // 기본값
+		System.out.println(optional3.orElseGet(() -> "발생 시키는 값")); // 발생 시키는 값
 		
+		try {
+			System.out.println(optional3.orElseThrow(() -> new Error("비워질 경우 사용자 정의 예외 발생")));			
+		} catch(Error e) {
+			System.out.println("예외가 발생하였음!");
+		}
+		
+		// cf) Optional 사용 시 주의점
+		// - 모든 곳에 Optional 사용할 필요는 X
+		//		: 반환 값에만 사용하는 것을 권장 (필드, 매개변수로 사용 X)
+		// - 값이 반드시 존재해야 하는 경우 Optional 사용 X
+		//		: null 방지에 대한 필수 값은 직접 값을 반환하고 null 여부 확인
 	}
 }
