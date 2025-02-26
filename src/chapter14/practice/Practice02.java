@@ -2,6 +2,7 @@ package chapter14.practice;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 import lombok.AllArgsConstructor;
@@ -60,5 +61,28 @@ public class Practice02 {
 				.collect(Collectors.toList());
 		
 		employeeWithJo.forEach(System.out::println);
+		
+		// cf) groupingBy()
+		// : Map 인터페이스를 반환 - 그룹화 값(Key), 내부 요소(Value)
+		
+		// 4. 부서별 직원 그룹화
+		// Collectors 클래스 - groupingBy
+		Map<String, List<Employee>> employeeByDept = employees.stream()
+				.collect(Collectors.groupingBy(Employee::getDepartment));
+//				.collect(Collectors.groupingBy(employee -> employee.getDepartment()));
+		
+		System.out.println(employeeByDept);
+//		{OP=[Employee(department=OP, name=전예찬, salary=350)]
+		// , HR=[Employee(department=HR, name=조승범, salary=500), Employee(department=HR, name=윤대휘, salary=380)]
+		// , IT=[Employee(department=IT, name=이승아, salary=300), Employee(department=IT, name=김준일, salary=400)]}
+		
+		// 5. 부서별 평균 급여 계산
+		// Collectors 클래스 - groupingBy, avaragingInt(각 직원의 급여를 전달)
+		Map<String, Double> avgSalaryByDept = employees.stream()
+				.collect(Collectors.groupingBy(Employee::getDepartment,
+							Collectors.averagingInt(Employee::getSalary)));
+				
+		// cf) 정수값의 평균값은 실수 반환 가능성 존재
+		System.out.println(avgSalaryByDept); // {OP=350.0, HR=440.0, IT=350.0}
 	}
 }

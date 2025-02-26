@@ -10,7 +10,7 @@ import java.util.stream.Stream;
 // 1. collect 메서드
 // : 스트림의 요소를 변환하거나, 집계에서 최종 결과를 생성하는 데 사용
 // - 스트림의 종결 작업 중 하나
-// - 특정 컨테이너(List, Set, Map)로 변환 ||  값을 합산, 집계에 사용
+// - 특정 컨테이너(List, Set, Map)로 변환 || 값을 합산, 집계에 사용
 
 // 2. Collectors 클래스
 // : 다양한 Collector를 제공하여 collect 메서드와 결합해 하나의 결과를 반환
