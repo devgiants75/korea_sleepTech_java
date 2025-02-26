@@ -1,4 +1,4 @@
-package chapter14;
+package chapter14.practice;
 
 import java.util.Arrays;
 import java.util.Comparator;
@@ -26,7 +26,7 @@ class StudentClass {
 }
 
 
-public class H_Practice {
+public class Practice01 {
 	public static void main(String[] args) {
 		List<StudentClass> studentClasses = Arrays.asList(
 					new StudentClass("이승아", 30, 4.3),
