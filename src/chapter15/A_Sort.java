@@ -98,15 +98,12 @@ public class A_Sort {
 		// 캐릭터 이름의 길이를 오름차순 정렬
 		
 		List<String> sortedCharacter = characterNames.stream()
-				.sorted((n1, n2) -> n2.length() - n1.length())
+				.sorted((n1, n2) -> n1.length() - n2.length())
 				.collect(Collectors.toList());
 		
 		System.out.println(sortedCharacter);
 		
-		
-		
-		
-		
-		
+		// 불변성 데이터에 대한 정렬 >> 스트림 API
+		// 원본 데이터 그 자체에 대한 정렬 >> Comparator 클래스의 .comparing 메서드를 사용		
 	}
 }
