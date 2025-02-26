@@ -72,15 +72,5 @@ public class UserService {
 				.collect(Collectors.toList());
 		
 		userList.forEach(System.out::println);
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 	}
 }
