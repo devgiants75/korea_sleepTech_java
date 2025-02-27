@@ -40,6 +40,8 @@ public class B_Enum {
 		
 		// == ENUM의 주요 메서드 ==
 		// 1) values(): 열거형의 모든 값을 배열로 반환
+		int[] numbers = {1, 2, 3, 4, 5};
+		System.out.println(numbers);
 		System.out.println(Fruits.values()); // [Lchapter16.Fruits;@3feba861
 		
 		for (Fruits fruit: Fruits.values()) {
