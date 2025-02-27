@@ -19,7 +19,14 @@ public class UserServiceImpl implements UserService {
 		
 		Optional<User> optionalUser = userRepository.findByUserId(userId);
 		
-		if (optionalUser.get() != null) {
+		// 옵셔널데이터.get()
+		// : Optional 내부의 데이터를 꺼내오는 메서드
+		// >> 데이터가 존재하지 않더라도(null) 반환
+		// >> 값이 존재하지 않을 때 NoSuchElementException 예외 발생
+		
+		// cf) .isPresent()
+		//		: 내부값 확인
+		if (optionalUser.isPresent()) {
 			System.out.println("해당 ID의 유저가 존재합니다. 다시 시도해주세요.");
 			return;
 		}

@@ -68,7 +68,7 @@ public class ReservationController {
 			reservationServiceImpl.createReservation(input(sc, "사용자 ID"));
 			break;
 		case 5:
-			List<Reservation> results = reservationServiceImpl.getReservationsByUserId(null);
+			List<Reservation> results = reservationServiceImpl.getReservationsByUserId(input(sc, "사용자 ID"));
 			results.forEach(System.out::println);
 			break;
 		case 6:
