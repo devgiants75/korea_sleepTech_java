@@ -1,5 +1,8 @@
 package chapter16.practice.entity;
 
+import lombok.Getter;
+
+@Getter
 public class Book extends Item {
 	private String isbn; // 책의 고유값
 	private String author;
