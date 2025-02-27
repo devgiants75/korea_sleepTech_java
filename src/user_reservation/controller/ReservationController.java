@@ -73,7 +73,14 @@ public class ReservationController {
 			break;
 		case 6:
 			String reservationId = input(sc, "예약 ID");
-			reservationServiceImpl.cancelReservation(Long.parseLong(reservationId));
+			
+			try {
+				Long id = Long.parseLong(reservationId);
+				reservationServiceImpl.cancelReservation(id);				
+			} catch (NumberFormatException e) {
+				System.out.println("예약 ID는 숫자여야합니다. 다시 시도해주세요.");
+			}
+			
 			break;
 		case 7:
 			System.out.println("프로그램을 종료합니다.");
