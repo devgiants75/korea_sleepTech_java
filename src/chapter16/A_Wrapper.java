@@ -39,5 +39,32 @@ public class A_Wrapper {
 		Integer integerValue = new Integer(15);
 		int iValue = integerValue;
 		System.out.println(iValue); // 15
+		
+		// == Wrapper 클래스의 내부 메서드 == //
+		// cf) Wrapper 클래스 내부의 toString() 메서드는 객체가 보유하고 있는 실제 값이 출력
+		
+		// Integer
+		
+		// 1) 생성자: Integer(int value)
+		Integer myInteger = new Integer(50);
+		
+		new Integer("50"); // 문자열을 받아 해당하는 int 값을 갖는 Integer 객체 생성
+		// new Integer("안녕");
+		// >> 문자열이 숫자로 변환될 수 없는 경우 NumberFormatException 발생
+		
+		// intValue(): Integer 객체를 기본 int 타입으로 변환
+		int myInt = myInteger.intValue();
+		System.out.println(myInt);
+		
+		// parseInt(String s): 문자열을 기본 int 타입으로 파싱
+		// String >> Integer >> int
+		int parseInt = Integer.parseInt("123");
+		System.out.println(parseInt);
+		
+		// a.compareTo(Integer anotherInt)
+		// : 두 Integer 객체를 비교해서 같으면 0, 호출 객체(a)가 더 크면 양수, 더 작으면 음수
+		Integer anotherInt = new Integer(51);
+		int result = myInteger.compareTo(anotherInt);
+		System.out.println(result); // -1
 	}
 }
