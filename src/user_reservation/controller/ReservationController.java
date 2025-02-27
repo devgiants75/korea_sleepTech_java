@@ -89,7 +89,4 @@ public class ReservationController {
 		System.out.print(prompt + ": ");
 		return sc.nextLine();
 	}
-	
-	
-	
 }
