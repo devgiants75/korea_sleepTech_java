@@ -8,5 +8,5 @@ public interface ReservationService {
 	// 예약 등록, 조회, 취소
 	void createReservation(String userId);
 	List<Reservation> getReservationsByUserId(String userId);
-	void cancelReservation(String reservationId);
+	void cancelReservation(Long reservationId);
 }

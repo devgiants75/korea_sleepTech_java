@@ -48,14 +48,19 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public void logout() {
-		// TODO Auto-generated method stub
-		
+		if (loggedUser != null) {
+			// 로그인 중
+			System.out.println("로그아웃 성공: " + loggedUser.getName());
+			loggedUser = null;
+		} else {
+			System.out.println("로그인 상태가 아닙니다. 로그아웃할 수 없습니다.");
+		}
 	}
 
 	@Override
 	public boolean isLoggedIn() {
-		// TODO Auto-generated method stub
-		return false;
+		boolean result = loggedUser != null;
+		// 로그인 중: true / 로그인 중 X: false
+		return result;
 	}
-
 }

@@ -26,7 +26,7 @@ package user_reservation;
  * service: UserService, ReservationService (interface)
  * >> implement: UserServiceImpl, ReservationServiceImpl
  * 
- * controller: UserController, ReservationController
+ * controller: ReservationController
  * repository: UserRepository, ReservationRespository
  * */
 public class Reservation {

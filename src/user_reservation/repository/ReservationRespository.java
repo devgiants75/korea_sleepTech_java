@@ -23,7 +23,7 @@ public class ReservationRespository {
 	}
 	
 	// 예약 정보 확인 - 단건 조회
-	public Optional<Reservation> findById(String reservationId) {
+	public Optional<Reservation> findById(Long reservationId) {
 		return reservations.stream()
 				.filter(res -> res.getReservationId().equals(reservationId)).findFirst();
 	}

@@ -9,7 +9,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 @Getter
 public class Reservation {
-	private final String reservationId; // 각 예약의 고유값
+	private final Long reservationId; // 각 예약의 고유값
 	private final String userId; // 예약자 정보
 	private final Date reservationTime; // 예약 시간
 	
