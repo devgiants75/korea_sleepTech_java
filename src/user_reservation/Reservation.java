@@ -19,9 +19,19 @@ package user_reservation;
  * - 서비스: 사용자, 예약 관련 비즈니스 로직
  * - 컨트롤러: 사용자의 요청을 처리하고 응답하는 역할
  * - 저장소(리포지토리): 데이터 처리에 사용, DB(데이터베이스)와 상호작용을 담당
+ * 
+ * 3) 프로젝트 구조
+ * entity: User, Reservation
+ * 
+ * service: UserService, ReservationService (interface)
+ * >> implement: UserServiceImpl, ReservationServiceImpl
+ * 
+ * controller: UserController, ReservationController
+ * repository: UserRepository, ReservationRespository
  * */
 public class Reservation {
 	public static void main(String[] args) {
+		
 		
 	}
 }
