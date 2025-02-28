@@ -79,23 +79,40 @@ public class HealthRecordServiceImpl implements HealthRecordService {
 
 	@Override
 	public List<RecordResponseDto> filterRecordsByDiagnosis(String diagnosis) {
-		// TODO Auto-generated method stub
-		return null;
+		List<RecordResponseDto> responseDtos = null;
+		
+		try {
+			List<HealthRecord> records = recordRepository.findAll();
+			
+			responseDtos = records.stream()
+					// 스트림 중간요소는 스트림 값을 반환
+					// filter: 조건에 일치하는(true) 값을 스트림으로 반환
+					.filter(r -> r.getDiagnosis().contains(diagnosis))
+					.map(filteredRecord -> new RecordResponseDto(
+							filteredRecord.getId(), filteredRecord.getPatientId()
+							, filteredRecord.getDateOfVisit(), filteredRecord.getDiagnosis()
+							, filteredRecord.getTreatment(), new Date()
+							
+					))
+					.collect(Collectors.toList());
+			
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+
+		return responseDtos;
 	}
 
 	@Override
 	public void deleteRecord(Long id) {
-		// TODO Auto-generated method stub
-		
+		try {
+			HealthRecord healthRecord = recordRepository.findById(id)
+					.orElseThrow(() 
+							-> new IllegalArgumentException("해당 ID의 건강 기록은 존재하지 않습니다. ID: " + id));
+			
+			recordRepository.delete(healthRecord);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }
