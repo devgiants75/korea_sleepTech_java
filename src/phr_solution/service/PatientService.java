@@ -8,7 +8,7 @@ import phr_solution.dto.response.PatientResponseDto;
 public interface PatientService {
 	void registerPatient(PatientRequestDto dto);
 	List<PatientResponseDto> listAllPatients();
-	PatientResponseDto getPatientById();
+	PatientResponseDto getPatientById(Long id);
 	void updatePatient(Long id, PatientRequestDto dto);
 	void deletePatient(Long id);
 }
