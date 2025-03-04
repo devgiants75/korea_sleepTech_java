@@ -66,11 +66,11 @@ public class App {
 		// : 입력 받은 값이 숫자면 true, 아니면 false 반환
 		while (!sc.hasNextInt()) {
 			System.out.println("숫자를 입력해주세요.");
-			sc.next();
+			sc.nextLine();
 		}
 
 		int choice = sc.nextInt();
-		sc.next(); // 버퍼 처리
+		sc.nextLine(); // 버퍼 처리
 		return choice;
 	}
 
